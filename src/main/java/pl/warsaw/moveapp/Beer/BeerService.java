@@ -56,6 +56,9 @@ public class BeerService {
     }
 
     public List<BeerDto> findBeersWithPhrase(String phrase) {
-       return builder.buildFromDaoToDto(beerRepository.findByName(phrase));
+
+        String capitalizedWord = phrase.substring(0, 1).toUpperCase() + phrase.substring(1);
+
+        return builder.buildFromDaoToDto(beerRepository.findByName(capitalizedWord));
     }
 }

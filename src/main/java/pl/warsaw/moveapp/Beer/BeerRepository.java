@@ -10,11 +10,7 @@ import java.util.List;
 
 @Repository
 public interface BeerRepository extends JpaRepository<BeerDao, Long> {
-/*
-    BeerDao findById(Integer id) throws DataAccessException;
-    // and another operations to database.
 
-    */
     List<BeerDao> findByName(String phrase);
 
 }

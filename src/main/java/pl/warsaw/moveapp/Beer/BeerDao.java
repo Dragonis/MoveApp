@@ -15,10 +15,12 @@ public class BeerDao {
 
     String firstBrewed;
 
+    // Without set leght size is error message 'Wartość za długa dla kolumny "DESCRIPTION VARCHAR(255)"'
+    @Column(length = 4096)
     String description;
 
     String imageUrl;
 
-    Integer ibu;
+    Double ibu;
 
 }

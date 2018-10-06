@@ -29,25 +29,25 @@ public class BeerDto {
     private Double abv;
 
     @SerializedName("ibu")
-    private Integer ibu;
+    private Double ibu;
 
     @SerializedName("target_fg")
-    private Integer targetFg;
+    private Double targetFg;
 
     @SerializedName("target_og")
-    private Integer targetOg;
+    private Double targetOg;
 
     @SerializedName("ebc")
-    private Integer ebc;
+    private Double ebc;
 
     @SerializedName("srm")
-    private Integer srm;
+    private Double srm;
 
     @SerializedName("ph")
     private Double ph;
 
     @SerializedName("attenuation_level")
-    private Integer attenuationLevel;
+    private Double attenuationLevel;
 
     @SerializedName("volume")
     private Volume volume;
@@ -126,43 +126,43 @@ public class BeerDto {
         this.abv = abv;
     }
 
-    public Integer getIbu() {
+    public Double getIbu() {
         return ibu;
     }
 
-    public void setIbu(Integer ibu) {
+    public void setIbu(Double ibu) {
         this.ibu = ibu;
     }
 
-    public Integer getTargetFg() {
+    public Double getTargetFg() {
         return targetFg;
     }
 
-    public void setTargetFg(Integer targetFg) {
+    public void setTargetFg(Double targetFg) {
         this.targetFg = targetFg;
     }
 
-    public Integer getTargetOg() {
+    public Double getTargetOg() {
         return targetOg;
     }
 
-    public void setTargetOg(Integer targetOg) {
+    public void setTargetOg(Double targetOg) {
         this.targetOg = targetOg;
     }
 
-    public Integer getEbc() {
+    public Double getEbc() {
         return ebc;
     }
 
-    public void setEbc(Integer ebc) {
+    public void setEbc(Double ebc) {
         this.ebc = ebc;
     }
 
-    public Integer getSrm() {
+    public Double getSrm() {
         return srm;
     }
 
-    public void setSrm(Integer srm) {
+    public void setSrm(Double srm) {
         this.srm = srm;
     }
 
@@ -174,11 +174,11 @@ public class BeerDto {
         this.ph = ph;
     }
 
-    public Integer getAttenuationLevel() {
+    public Double getAttenuationLevel() {
         return attenuationLevel;
     }
 
-    public void setAttenuationLevel(Integer attenuationLevel) {
+    public void setAttenuationLevel(Double attenuationLevel) {
         this.attenuationLevel = attenuationLevel;
     }
 

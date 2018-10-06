@@ -3,7 +3,9 @@ package pl.warsaw.moveapp.Beer;
 import pl.warsaw.moveapp.Beer.Dto.BeerDto;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class BeerBuilder {
 
@@ -11,8 +13,9 @@ public class BeerBuilder {
 
     List<BeerDao> buildFromDtoToDao(BeerDto[] dtos) {
         List<BeerDao> daos = new ArrayList<>();
-        BeerDao dao = new BeerDao();
+        BeerDao dao;
         for(BeerDto dto: dtos) {
+            dao = new BeerDao();
             dao.punkapiId = dto.getPunkapiId();
             dao.name = dto.getName();
             dao.tagline = dto.getTagline();
@@ -23,6 +26,7 @@ public class BeerBuilder {
             daos.add(dao);
         }
         return daos;
+
     }
 
     BeerDao buildFromDtoToDao(BeerDto dto) {
