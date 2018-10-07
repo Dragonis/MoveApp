@@ -1,35 +1,32 @@
 package pl.warsaw.moveapp;
 
-import org.springframework.http.MediaType;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import pl.warsaw.moveapp.Beer.BeerService;
+import pl.warsaw.moveapp.Beer.BeerFacade;
 import pl.warsaw.moveapp.Beer.Dto.BeerDto;
 
 import java.util.List;
 
 @RestController("/")
+@AllArgsConstructor
 public class IndexController {
 
-    BeerService beerService;
+    private BeerFacade facade;
 
-    public IndexController(BeerService beerService) {
-        this.beerService = beerService;
-    }
-
-    @GetMapping(value="/", produces=MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping("/")
     public List<BeerDto> index(){
-        beerService.insertFixturesIntoDatabase(beerService.getAllBeersFromExternalAPI());
-        return beerService.getAllDataFromDatabase();
+        facade.insertFixturesIntoDatabase(facade.getAllBeersFromExternalAPI());
+        return facade.getAllDataFromDatabase();
     }
 
-    @GetMapping(value="/foodpairings/search/{phrase}", produces=MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping("/foodpairings/search/{phrase}")
     public List<BeerDto> findByPhrase(@PathVariable("phrase") String phrase) {
-        return beerService.findBeersWithPhrase(phrase);
+        return facade.findBeersWithPhrase(phrase);
     }
 
     @PostMapping("/beers")
     public void insertBeer(@RequestBody BeerDto dto) {
-        beerService.insertBeerDtoIntoDatabase(dto);
+        facade.insertBeerDtoIntoDatabase(dto);
     }
 
 }

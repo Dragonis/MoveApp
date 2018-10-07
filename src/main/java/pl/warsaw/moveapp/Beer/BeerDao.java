@@ -1,26 +1,31 @@
 package pl.warsaw.moveapp.Beer;
 
+import lombok.*;
+
 import javax.persistence.*;
 
 @Entity(name = "Beer")
+@Builder
+@Getter @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class BeerDao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Integer punkapiId;
+    private Integer punkapiId;
 
-    String name;
+    private String name;
 
-    String tagline;
+    private String tagline;
 
-    String firstBrewed;
+    private String firstBrewed;
 
-    // Without set leght size is error message 'Wartość za długa dla kolumny "DESCRIPTION VARCHAR(255)"'
     @Column(length = 4096)
-    String description;
+    private String description;
 
-    String imageUrl;
+    private String imageUrl;
 
-    Double ibu;
+    private Double ibu;
 
 }

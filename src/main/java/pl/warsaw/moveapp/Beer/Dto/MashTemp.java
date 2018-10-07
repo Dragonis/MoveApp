@@ -1,31 +1,13 @@
 
 package pl.warsaw.moveapp.Beer.Dto;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter @Setter
 public class MashTemp {
 
-    @SerializedName("temp")
     private Temp temp;
 
-    @SerializedName("duration")
     private Integer duration;
-
-    public Temp getTemp() {
-        return temp;
-    }
-
-    public void setTemp(Temp temp) {
-        this.temp = temp;
-    }
-
-    public Integer getDuration() {
-        return duration;
-    }
-
-    public void setDuration(Integer duration) {
-        this.duration = duration;
-    }
-
 }

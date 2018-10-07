@@ -1,34 +1,29 @@
 package pl.warsaw.moveapp;
 
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.Environment;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.SchedulingConfigurer;
 import org.springframework.scheduling.config.ScheduledTaskRegistrar;
-import pl.warsaw.moveapp.Beer.AppProperties;
-import pl.warsaw.moveapp.Beer.BeerInitializationDatabase;
+import pl.warsaw.moveapp.Beer.BeerInitializeDatabase;
 
 @Configuration
 @EnableScheduling
+@AllArgsConstructor
+@Slf4j
 public class SchedulerConfig implements SchedulingConfigurer {
 
-    private AppProperties properties;
-
-    private BeerInitializationDatabase initialize;
-
-    public SchedulerConfig(BeerInitializationDatabase initialize, Environment env) {
-        this.initialize = initialize;
-        this.properties = new AppProperties(env);
-    }
+    private BeerInitializeDatabase initialize;
 
     @Override
     public void configureTasks(ScheduledTaskRegistrar taskRegistrar) {
         taskRegistrar.addFixedRateTask(new Runnable() {
             @Override
             public void run() {
-                    // methods runs every period time
+                    log.info("Triggered getAllBeersFromExternalAPI method");
                     initialize.getAllBeersFromExternalAPI();
             }
-        }, properties.getPeriodTimeInMinutes());
+        }, initialize.getDatabaseUpdateFixturesInMinutes());
     }
 }
